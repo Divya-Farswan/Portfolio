@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio HTML & CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./tailwind.config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+</head>
+
+<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
+
+  <!--NAVIGATION-->
+  <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+    <img src="./images/header-bg-color.png" alt="bg-nav" class="w-full" />
+  </div>
+
+  <nav class="w-full z-50 fixed px-5 lg:px-8 xl:px-[4%] flex items-center justify-between">
+    <img src="./images/logo.png" alt="Logo" class="w-32 cursor-pointer dark:hidden" />
+    <img src="./images/logo-dark.png" alt="Logo" class="w-32 cursor-pointer hidden dark:block" />
+
+    <ul
+      class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About me</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">My Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="flex items-center gap-4">
+      <button onclick="toggleTheme()">
+        <img src="./images/moon_icon.png" alt="moon btn" class="w-6 dark:hidden" />
+        <img src="./images/sun_icon.png" alt="moon btn" class="w-6 hidden dark:block" />
+
+      </button>
+      <a href="#contact"
+        class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50">
+        Contact
+        <img src="./images/arrow-icon.png" alt="arrow-icon" class="w-3 dark:hidden" />
+        <img src="./images/arrow-icon-dark.png" alt="arrow-icon" class="w-3 hidden dark:block" />
+
+      </a>
+      <button class="block md:hidden" onclick="openMenu()">
+        <img src="./images/menu-black.png" class="w-6 dark:hidden" alt="">
+        <img src="./images/menu-white.png" class="w-6 hidden dark:block" alt="">
+      </button>
+    </div>
+
+    <!-- Sidebar menu for mobile screens -->
+    <ul id="sideMenu"
+      class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+
+      <!-- Close button in sidebar -->
+      <div class="absolute right-6 top-6" onclick="closeMenu()">
+        <img src="./images/close-black.png" class="w-4 sm:w-5 cursor-pointer dark:hidden" alt="">
+        <img src="./images/close-white.png" class="w-4 sm:w-5 cursor-pointer hidden dark:block" alt="">
+      </div>
+
+      <li><a href="#top" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About me</a></li>
+      <li><a href="#services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#work" onclick="closeMenu()">My Work</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+
+
+
+  <!--1st add nav tag with 
+    1. image logo, 
+    2. some list of links
+    3. button which is link with arrow icon
+    -->
+
+  <!--2nd use tailwind css
+    1. go to tailwind css.com 
+    2. docs
+    3. play CDN
+    4. you will se Script tag which include the tailwing css
+    5. copy the tag and paste it before </head> tag
+    6. add new file name with tailwind.config.js and leave it empty
+    7. connect tailwind.config.js after tailwind script tag
+    -->
+
+  <!--3rd add one extension
+    1. tailwind CSS intellisense - for tailwind css suggestion 
+    2. now use tailwind in nav tag component using class
+    3. now use tailwind in nav tag
+    -->
+
+  <!--4th add moon and sum icon
+    1. use button tag with img tag to show moon icon
+    2. wrap contact button and moon button in div to make icon with contact button
+    -->
+
+  <!--5th add light bg image in navbar-->
+
+  <!--6th check responsiveness of the nav and make changes for small screeen-
+  1. add menu/nav icon - use btn tag
+  2. hide menu icon for large screen size - use block in btn
+  3. add cross icon and menu link
+  -->
+
+  <!--6th hide menu ul
+  1. bcoz menu icon ke click pe functionality lane ke liye pehle usse hide hona chahiye means
+  2. jab menu icon pe click karege tab menu ul show hona chahiye
+  3. or ye karne ke liye ul pe -right-64 likho toh ul move to right side
+  4. in body tag add class="overflow-x-hidden" 
+  -->
+
+  <!--7th add functionality to menu icon and cross icon
+  1. create js file
+  2. add js file with html file 
+  1. to add functionality use ul id="sideMenu"
+  2. link functionality with the with open and close icon + with all nav links
+  -->
+
+  <!--HEADER-->
+  <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-3">
+    <img src="./images/profile-img.png" alt="" class="rounded-full w-32 ">
+
+    <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3">Hi! I'm Divya Farswan <img src="./images/hand-icon.png"
+        class="w-6" alt=""></h3>
+
+    <h1 class="text-3xl sm:text-6xl lg:text-[62px]">Web Developer</h1>
+
+    <p class="max-w-2xl mx-auto">I am a Front-end and Backend Developer from Dehradun, Uttrakhand with proficiency and
+      in-hands MERN Stack Development with DSA in JAVA and many other modern tools and technologies.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-8 mt-4">
+      <a href="#contact"
+        class="px-8 py-2 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">Contact
+        me <img src="./images/right-arrow-white.png" class="w-4" alt=""></a>
+
+      <a href="./Divya_CV.pdf" download
+        class="px-8 py-2 border rounded-full border-gray-500 bg-white flex items-center gap-2 dark:text-black">My
+        Resume<img src="./images/download-icon.png" class="w-4" alt=""></a>
+
+    </div>
+  </div>
+
+
+
+  <!--1st do proile pics + intro
+    1. add rounded profile picture with some infomation
+    2. add css property to align hand icon which h3
+    3. add css to h1
+  -->
+
+  <!--2nd add 2 buttons below intro in div
+  1. add a tag for contact me btn
+  2. add a tag for my resume btn
+  3. align both a tag btn side by side in div
+  4. want to attach a downloadable file in my resume btn 
+  -->
+
+
+  <!--ABOUT ME-->
+  <div id="about" class="w-full px-[12%] py-10 scroll-mt-12">
+    <h4 class="text-center mb-2 text-lg">Introduction</h4>
+    <h2 class="text-center text-5xl">About me</h2>
+
+    <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-10">
+      <div class="max-w-max mx-auto relative">
+        <img src="./images/user-image.png" class="w-64 sm:w-80 rounded-3xl max-w-none" alt="">
+      </div>
+
+      <div class="flex-1">
+        <p class="mb-10 max-w-2xl text-justify">As a developer with a foundation in MongoDB, Express.js, React, and
+          Node.js, I enjoy
+          turning complex ideas
+          into smooth, functional applications.
+          <span>
+            Through my learning path, I have developed skills in front-end and back-end
+            development, and I'm particularly
+            focused on creating dynamic and responsive user interfaces. I'm excited to bring fresh
+            perspectives and a dedicated work ethic to any team, always eager to learn and adapt.
+          </span>
+        </p>
+
+        <ul class="grid grid-cols-auto my-10 gap-4 md:gap-6">
+
+          <li
+            class="aspect-auto border-[0.5px] border-gray-400 rounded-xl p-4 cursor-pointer hover:bg:lightHover hover:-translate-y-1 hover:shadow-black duration-500 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+            <img src="./images/code-icon.png" class="w-7 mt:2 lg:mt-3 dark:hidden" alt="">
+            <img src="./images/code-icon-dark.png" class="w-7 mt:2 lg:mt-3 hidden dark:block" alt="">
+
+            <h3 class="lg:my-4 my-3 font-semibold text-gray-700 dark:text-white">Languages</h3>
+            <p class="text-gray-600 text-sm dark:text-white/80">HTML, CSS, JavaScipt, React JS, Node JS, MongoDB,
+              TailWind
+              CSS, bootstrap</p>
+          </li>
+
+          <li
+            class="aspect-auto border-[0.5px] border-gray-400 rounded-xl p-4 cursor-pointer hover:bg:lightHover hover:-translate-y-1 hover:shadow-black duration-500 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+            <img src="./images/edu-icon.png" class="w-7 mt:2 lg:mt-3 dark:hidden" alt="">
+            <img src="./images/edu-icon-dark.png" class="w-7 mt:2 lg:mt-3 hidden dark:block" alt="">
+
+            <h3 class="lg:my-4 my-3 font-semibold text-gray-700 dark:text-white">Education</h3>
+            <p class="text-gray-600  text-sm dark:text-white/80">
+              Web Development
+            </p>
+            <p class="text-gray-600 text-sm dark:text-white/80">
+              Bachelor of Arts <br>
+            </p>
+            <p class="text-gray-600 text-sm dark:text-white/80">
+              PCM in Intermediate
+            </p>
+          </li>
+
+          <li
+            class="aspect-auto border-[0.5px] border-gray-400 rounded-xl p-4 cursor-pointer hover:bg:lightHover hover:-translate-y-1 hover:shadow-black duration-500 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+            <img src="./images/project-icon.png" class="w-7 mt:2 lg:mt-3 dark:hidden" alt="">
+            <img src="./images/project-icon-dark.png" class="w-7 mt:2 lg:mt-3 hidden dark:block" alt="">
+
+            <h3 class="lg:my-4 my-3 font-semibold text-gray-700 dark:text-white">Project</h3>
+            <p class="text-gray-600 text-sm dark:text-white/80">Build more than 5 projects</p>
+          </li>
+        </ul>
+
+        <h4 class="my-6 font-semibold text-gray-700 dark:text-white/80">Tools I used</h4>
+
+        <ul class="flex items-center gap-3 sm:gap-5">
+          <li
+            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="./images/vscode.png" class="w-5 sm:w-7" alt="">
+          </li>
+          <li
+            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="./images/firebase.png" class="w-5 sm:w-7" alt="">
+          </li>
+          <li
+            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="./images/mongodb.png" class="w-5 sm:w-7" alt="">
+          </li>
+          <li
+            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="./images/figma.png" class="w-5 sm:w-7" alt="">
+          </li>
+          <li
+            class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+            <img src="./images/git.png" class="w-5 sm:w-7" alt="">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--1st about me
+  1. add introduction and about me text
+  2. add if we click aboutme in navbar it should scrool the webpage to particular section
+  3. for 2nd step add id to about me div
+  4. and in navbar menu we have add href=#about
+  5. so id should be same to href - after this if we click about me in nav it will scroll the page to about me
+  6. add div 
+          in this we add 2 col left and right side
+  -->
+
+  <!--2nd 2 col code 
+  1. 1st div there is img of user
+  2. 2nd div there will be p tag, ul 
+  -->
+
+  <!-- 3rd make card li in ul
+  1. in ul there will be li of thing
+  2. in li there is img h3 p tag
+  2. after adding class in li the li move up and shadow come with cursor pointer
+  3. add 3 li tag
+  4. in 3 li there are languages, education and projects
+  5. align all this li in same horizontal line
+  -->
+
+  <!-- add icons
+  1. add text 
+  2. add icons 
+  3. now clicking in about me in navbar toh hum sidhe about me jare tab introduction or navbar mai gap nhi aa raha so
+        we add mt at scroll - in div of about me
+  4. add smooth scrolling at html tag
+  -->
+
+  <!--add badge in profile image
+  1. add badge
+  2. add rotating text
+  3. add icon
+  -->
+
+  <!--SERVICES-->
+  <div id="services" class="w-full px-[12%] py-10 scroll-mt-20">
+    <h4 class="text-center mb-3 text-lg">What I offer</h4>
+    <h2 class="text-center text-5xl">My Services</h2>
+    <p class="text-center max-w-2xl mx-auto mt-12 mb-12">
+      As a developer with a foundation in MongoDB, Express.js, React, and
+      Node.js, I enjoy
+      turning complex ideas
+      into smooth, functional applications.
+      Through my learning path, I have developed skills in front-end and back-end
+      development.
+    </p>
+
+    <div>
+      <ul class="grid grid-cols-auto my-10 gap-4 md:gap-6">
+
+        <li
+          class="aspect-auto border-[0.5px] border-gray-400 rounded-xl p-4 cursor-pointer hover:bg-lightHover hover:-translate-y-1 hover:shadow-black duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+          <img src="./images/web-icon.png" class="w-10" alt="">
+
+          <h3 class="text-lg my-2 lg:my-4 text-gray-700 dark:text-white">Front-end Design</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Web development is the process of building...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-2.5 lg:mt-5">Read more <img
+              src="./images/right-arrow.png" class="w-4" alt=""></a>
+        </li>
+
+        <li
+          class="aspect-auto border-[0.5px] border-gray-400 rounded-xl p-4 cursor-pointer hover:bg-lightHover hover:-translate-y-1 hover:shadow-black duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+          <img src="./images/web-icon.png" class="w-10" alt="">
+          <h3 class="text-lg my-2 lg:my-4 text-gray-700 dark:text-white">Back-end Design</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Web development is the process of building...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-2.5 lg:mt-5">Read more <img
+              src="./images/right-arrow.png" class="w-4" alt=""></a>
+        </li>
+
+        <li
+          class="aspect-auto border-[0.5px] border-gray-400 rounded-xl p-4 cursor-pointer hover:bg-lightHover hover:-translate-y-1 hover:shadow-black duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+          <img src="./images/web-icon.png" class="w-10" alt="">
+          <h3 class="text-lg my-2 lg:my-4 text-gray-700 dark:text-white">Web Design</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Web development is the process of building...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-2.5 lg:mt-5">Read more <img
+              src="./images/right-arrow.png" class="w-4" alt=""></a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+
+  <!--WORKS-->
+  <div id="work" class="w-full px-[12%] py-12 scroll-mt-16">
+    <h4 class="text-center mb-2 text-lg">My Portfolio</h4>
+    <h2 class="text-center text-4xl md:text-5xl">My Latest Work</h2>
+    <p class="text-center max-w-2xl mx-auto mt-8 mb-12">Welcome to my development Portfolio! Explore a collection of
+      projects showcasing my expertise in front-end and back-end development</p>
+
+    <div><!--grid-cols-1 lg:grid-cols-3-->
+      <ul class="grid grid-cols-auto my-10 gap-4 md:gap-6 dark:text-black">
+        <li
+          class="aspect-square p-8 bg-[url('./images/work-1.png')] bg-no-repeat bg-cover bg-center rounded-xl relative cursor-pointer group">
+          <div
+            class="border border-gray-400 bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex flex-col justify-between duration-500 group-hover:bottom-8">
+            <h2 class="font-semibold">Front-end Project</h2>
+            <div class="flex justify-between items-center">
+              <p class="text-sm text-gray-700">Web Design</p>
+              <div
+                class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+                <img src="./images/send-icon.png" alt="" class="w-5">
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li
+          class="aspect-square p-8 bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center rounded-xl relative cursor-pointer group">
+          <div
+            class="border border-gray-400 bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex flex-col justify-between duration-500 group-hover:bottom-8">
+            <h2 class="font-semibold">Back-end Project</h2>
+            <div class="flex justify-between items-center">
+              <p class="text-sm text-gray-700">Web Design</p>
+              <div
+                class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+                <img src="./images/send-icon.png" alt="" class="w-5">
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li
+          class="aspect-square p-8 bg-[url('./images/work-3.png')] bg-no-repeat bg-cover bg-center rounded-xl relative cursor-pointer group">
+          <div
+            class="border border-gray-400 bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex flex-col justify-between duration-500 group-hover:bottom-8">
+            <h2 class="font-semibold">Full Stack Project</h2>
+            <div class="flex justify-between items-center">
+              <p class="text-sm text-gray-700">Web Design</p>
+              <div
+                class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+                <img src="./images/send-icon.png" alt="" class="w-5">
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <a href="#"
+      class="w-max flex items justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my- hover:bg-[#fcf4ff] duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover">Show
+      More
+      <img src="./images/right-arrow-bold.png" class="w-6 dark:hidden" alt="">
+      <img src="./images/right-arrow-bold-dark.png" class="w-6 hidden dark:block" alt="">
+    </a>
+  </div>
+
+  <!--CONTACT-->
+  <div id="contact"
+    class="w-full px-[12%] py-10 scroll-mt-24 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%-auto] bg-center dark:bg-none">
+    <h4 class="text-center mb-2 text-lg">Conntect with me</h4>
+    <h2 class="text-center text-4xl md:text-5xl">Get me touch</h2>
+    <p class="text-center max-w-2xl mx-auto mt-8 mb-12">I'd love to hear from you! If you have any questions, comments
+      or feedback, please use the form below.
+    </p>
+    <form method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
+      <input type="hidden" name="access_key" value="686f0692-e479-4100-a450-1114bd2e8215">
+
+      <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
+        <input type="text" placeholder="Enter Your Name"
+          class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
+          required name="name">
+
+        <input type="email" placeholder="Enter Your Email"
+          class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
+          required name="email">
+      </div>
+      <textarea rows="6" placeholder="Enter Your Message"
+        class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
+        required name="message"></textarea>
+      <button
+        class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Submit
+        <img src="./images/right-arrow-white.png" class="w-4" alt="">
+      </button>
+    </form>
+  </div>
+
+  <!--FOOTER-->
+  <div class="mt-20">
+    <div class="text-center">
+      <img src="./images/logo.png" class="w-36 mx-auto mb-2 dark:hidden" alt="">
+      <img src="./images/logo_dark.png" class="w-36 mx-auto mb-2 hidden dark:block" alt="">
+      <div class="w-max flex items-center gap-2 mx-auto">
+        <img src="./images/mail_icon.png" class="w-6 dark:hidden">
+        <img src="./images/mail_icon_dark.png" class="w-6 hidden dark:block">
+
+        divyaf01@gmail.com
+      </div>
+    </div>
+
+    <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
+      <p>2024 Divya Farswan. All rights</p>
+      <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+        <li><a href="https://github.com">GitHub</a></li>
+        <li><a href="https://linkedin.com">Linkedin</a></li>
+        <li><a href="https://twitter.com">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--render : 5:29:45 tech info yt-->
+  <script src="./script.js"></script>
+</body>
+
+</html>
